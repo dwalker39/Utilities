@@ -283,6 +283,7 @@
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
+    assert([alertView.delegate isKindOfClass:[QuickAlert class]]);
     switch (buttonIndex)
     {
         case 1:
@@ -321,19 +322,11 @@
             break;
     }
     
-    assert([alertView.delegate isKindOfClass:[QuickAlert class]]);
+#if __has_feature(objc_arc)
     [ [QuickAlertManager defaultManager] removeQuickAlertInstance:self ];
-    
-#if ! __has_feature(objc_arc)
+#else
     [ mpAlertView release ];
     [ self release ];
-#else
-    mpAlertView = nil;
-    mActionBlock1 = nil;
-    mActionBlock2 = nil;
-    mActionBlock3 = nil;
-    mActionBlock4 = nil;
-    mCancelBlock = nil;
 #endif
 }
 

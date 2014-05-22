@@ -9,6 +9,10 @@
 
 @interface NSString (Extensions)
 
+// Instance Methods
+- (NSString *)stringByRemovingCharactersInString:(NSString *)apString;
+
+// Class Methods
 + (NSString *)URLEncodeWithString:(NSString *)apSource;
 + (NSString *)URLEncodeWithStringUsingCoreFoundation:(NSString *)apSource;
 

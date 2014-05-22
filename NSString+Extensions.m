@@ -9,6 +9,26 @@
 
 @implementation NSString (Extensions)
 
+#pragma mark -
+#pragma mark Instance Methods
+
+- (NSString *)stringByRemovingCharactersInString:(NSString *)apString
+{
+    NSString *vpResult = [self copy];
+    
+    for (int i = 0; i < apString.length; i++)
+    {
+        char character = [apString characterAtIndex:i];
+        
+        vpResult = [vpResult stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@"%c", character] withString:@""];
+    }
+    
+    return vpResult;
+}
+
+#pragma mark -
+#pragma mark Class Methods
+
 + (NSString *)URLEncodeWithString:(NSString *)apSource
 {
     NSString *vpURLEncodedValue = nil;

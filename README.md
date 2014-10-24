@@ -6,7 +6,7 @@ This lets you quickly and easily create new UIAlertViews with closures for each 
 
 Example usage:
 ```swift
-            self.showMessage("Here is your message", title: "Here is your title", buttonCancelText: "Cancel", buttonText: "OK", buttonCancelAction: nil) {
+        self.showMessage("Here is your message", title: "Here is your title", buttonCancelText: "Cancel", buttonText: "OK", buttonCancelAction: nil) {
             () -> Void in
             println("You tapped on the only button")
         }
